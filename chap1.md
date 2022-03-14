@@ -19,7 +19,7 @@
 
 ### 调查并记录实验环境信息
 
-> 要查看发行版信息，使用命令 lsb_release -a
+> 要查看发行版信息，使用命令 `lsb_release -a`
 
 本地ubuntu20.04以及阿里云线上计算资源结果分别如下：
 
@@ -27,7 +27,7 @@
 
 ![](png/centos_dis.png)
 
-> 要查看内核版本信息，使用命令 uname -a
+> 要查看内核版本信息，使用命令 `uname -a`
 
 本地ubuntu20.04以及阿里云线上计算资源结果分别如下：
 
@@ -84,9 +84,18 @@ virtualbox安装linux系统时安装了两块显卡，分别设置为`NAT`与`�
 
 可以看到，重新使用ssh连接服务器，已可以成功免密登录。
 
+## 总结与反思
+整个过程中遇到的问题主要是初始搭建的linux环境缺少某些组件所致，查找资料并安装后已解决。
+
+另有一个问题我的网卡成功自动启动，因此第二项任务等于没有什么可做的。因此第二项任务，我查阅资料探寻该问题的出处，获得了一些答案。
+
+查找资料方面，主要参照了ubuntu的官方文档。由于中文社区的资料质量不敢相信，因此其他资料主要是一些纸质的英文文献。详见参考文献一栏。
+
 ## 参考文献
 
 [Ubuntu documentation about network-configuration](https://ubuntu.com/server/docs/network-configuration)
+
+[runoob/linux](https://www.runoob.com/linux/linux-tutorial.html)
 
 《Linux for Developers》.William Rothwell.Addison-Wesley
 	
