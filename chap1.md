@@ -23,23 +23,23 @@
 
 本地ubuntu20.04以及阿里云线上计算资源结果分别如下：
 
-![](png\ubuntu_dis.png)
+![](png/ubuntu_dis.png)
 
-![](png\centos_dis.png)
+![](png/centos_dis.png)
 
 > 要查看内核版本信息，使用命令 uname -a
 
 本地ubuntu20.04以及阿里云线上计算资源结果分别如下：
 
-![](png\ubuntu_kernel.png)
+![](png/ubuntu_kernel.png)
 
-![](png\centos_kernel.png)
+![](png/centos_kernel.png)
 
 ### 新网卡的自动启用和获取ip
 
 virtualbox安装linux系统时安装了两块显卡，分别设置为`NAT`与`仅主机`。可通过命令`ifconfig`来查看网卡工作情况。
 
-![](png\ifconfig.png)
+![](png/ifconfig.png)
 
 可以看到两块网卡均处于工作状态。
 
@@ -69,18 +69,18 @@ virtualbox安装linux系统时安装了两块显卡，分别设置为`NAT`与`�
 
 结果如图：
 
-![](png\doctrans.png)
+![](png/doctrans.png)
 
 在服务器和本地对应目录下查看，发现文件已传输成功。
 
-![](png\server.png)
+![](png/server.png)
 
-![](png\local.png)
+![](png/local.png)
 
 ### ssh免密登录
 主要流程是通过ssh-keygen生成公私钥对，再通过ssh-copy-id命令将公钥传输至服务器端。由于我之前已生成过rsa密钥，故这里只演示如何上传。
 
-![](png\withoutpwd.png)
+![](png/withoutpwd.png)
 
 可以看到，重新使用ssh连接服务器，已可以成功免密登录。
 
