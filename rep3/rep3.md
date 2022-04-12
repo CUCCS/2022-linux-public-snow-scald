@@ -114,8 +114,7 @@ systemd 245 (245.4-4ubuntu3.4)
     $ sudo timedatectl set-time YYYY-MM-DD
     $ sudo timedatectl set-time HH:MM:SS
     ```
-    具体操作步骤如下：
-    [![timedatectl]()
+
 
 6. **loginctl**
 
@@ -556,6 +555,14 @@ $ sudo journalctl --vacuum-time=1years
 7. ### 如何通过systemd设置实现一个脚本在任何情况下被杀死之后会立即重新启动，实现杀不死？
     可以通过将该脚本`[Service]`区块中`Restart`改为`always来实现。
 
+## 反思与总结
+1. 本次作业有一些操作在录制之后发现有问题，正确的结果是经过了更正之后进行的。以后写作业最好能先把结果实验好再录制。
+2. 在 `基于LVM（逻辑分卷管理）的分区如何实现动态扩容和缩减容量`内容中，由于新建了一个vg（testvg1）进行的实验，该vg会在默认的ubuntu-vg上方显示，导致录像中总无法显示该卷。以后作业中要注意类似细节。
 
+## 参考文献
+ [askubuntu-How to mount a VirtualBox shared folder at startup?](https://askubuntu.com/questions/252853/how-to-mount-a-virtualbox-shared-folder-at-startup)
 
+ [Add a User to a Group (or Second Group) on Linux](https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/)
+
+ [systemd.unit — Unit configuration](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
 
