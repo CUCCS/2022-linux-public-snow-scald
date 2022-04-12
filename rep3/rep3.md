@@ -560,9 +560,9 @@ $ sudo journalctl --vacuum-time=1years
 2. 在 `基于LVM（逻辑分卷管理）的分区如何实现动态扩容和缩减容量`内容中，由于新建了一个vg（testvg1）进行的实验，该vg会在默认的ubuntu-vg上方显示，导致录像中总无法显示该卷。以后作业中要注意类似细节。
 
 ## 参考文献
- [askubuntu-How to mount a VirtualBox shared folder at startup?](https://askubuntu.com/questions/252853/how-to-mount-a-virtualbox-shared-folder-at-startup)
+[askubuntu-How to mount a VirtualBox shared folder at startup?](https://askubuntu.com/questions/252853/how-to-mount-a-virtualbox-shared-folder-at-startup)
 
- [Add a User to a Group (or Second Group) on Linux](https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/)
+[Add a User to a Group (or Second Group) on Linux](https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/)
 
- [systemd.unit — Unit configuration](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
+[systemd.unit — Unit configuration](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
 
