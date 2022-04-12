@@ -522,7 +522,9 @@ $ sudo journalctl --vacuum-time=1years
     5. 实验全过程录像：
     [https://asciinema.org/a/CrNH7oDzBAuHM5XnDR9xF65Rl](https://asciinema.org/a/CrNH7oDzBAuHM5XnDR9xF65Rl)
 6. ### 如何通过systemd设置实现在网络连通时运行一个指定脚本，在网络断开时运行另一个脚本？
-    1. 在$HOME下分别创建两个脚本link.sh和unlink.sh
+
+    0. 查资料知，负责侦测网络连接的进程为`systemd-networkd-wait-online.service`。
+    1. 在$HOME下分别创建两个脚本link.sh和unlink.sh,并为其设置可执行权限。
         link.sh：
         ```bash
         echo "linked!"
@@ -531,27 +533,19 @@ $ sudo journalctl --vacuum-time=1years
         ```bash
         echo "unlinked!"
         ```
-    2. 在/etc/systemd/system路径下创建myservice.service，并编写该文件为：
-        ```
-        [Unit]
-        Description=after network action
-        After=systemd-networkd.service
-        Requires=systemd-networkd.service
+        ![display_sh](img/display_sh.png)
+    2. 在/usr/lib/systemd/system路径下编辑systemd-networkd-wait-online.service，并改写该文件
+    
+    ![execpost](img/execpost.png)
+    
+    将`link.sh`和`unlink.sh`分别添加到`ExecStartPost`，`ExecStopPost`。
+        
+    3. 输入 `systemctl daemon-reload`更新配置。
 
-        [Service]
-        Type=oneshot
-        ExecStart=/bin/bash -e /home/cuc/link.sh
-        ExecStopPost=/bin/bash -e /home/unlink.sh
-
-        [Install]
-        WantedBy=multi-user.target
-        ```
-    3. 输入 `sudo systemctl enable myservice.service`
-
-    3. 重启设备观察运行状态。
-        可以发现，在关闭开启systemd-networkd.service前后，这两个脚本成功执行。
+    3. 停止并重启该进程观察，可以发现，在关闭开启systemd-networkd-wait-online.service前后，这两个脚本成功执行。
+        ![start_stop](img/start_stop.png)
     4. 实验全过程录像：
-    [https://asciinema.org/a/FyQ5uyCxVFmNFH5OaVHbtXJun](https://asciinema.org/a/FyQ5uyCxVFmNFH5OaVHbtXJun)
+    [https://asciinema.org/a/jTX4PkNlTPAV4pJeG4mdtefCw](https://asciinema.org/a/jTX4PkNlTPAV4pJeG4mdtefCw)
 7. ### 如何通过systemd设置实现一个脚本在任何情况下被杀死之后会立即重新启动，实现杀不死？
     可以通过将该脚本`[Service]`区块中`Restart`改为`always来实现。
 
@@ -566,3 +560,4 @@ $ sudo journalctl --vacuum-time=1years
 
 [systemd.unit — Unit configuration](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
 
+[ArchWiki-systemd-networkd](https://wiki.archlinux.org/title/systemd-networkd)
