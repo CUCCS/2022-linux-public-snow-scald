@@ -546,20 +546,8 @@ $ sudo journalctl --vacuum-time=1years
     4. 实验全过程录像：
     [https://asciinema.org/a/jTX4PkNlTPAV4pJeG4mdtefCw](https://asciinema.org/a/jTX4PkNlTPAV4pJeG4mdtefCw)
 7. ### 如何通过systemd设置实现一个脚本在任何情况下被杀死之后会立即重新启动，实现杀不死？
-    可以通过将该脚本`[Service]`区块中`Restart`改为`always来实现。
+    可以通过将该脚本`[Service]`区块中`Restart`改为`always`来实现。
 
-[Unit]
-Description=test
-
-[Service]
-ExecStart=echo "success!"
-ExecStop=echo "Hello!"
-Restart=always
-RestartSec=1
-StartLimitInterval=0
-
-[Install]
-WantedBy=multi-user.target
 
 ## 反思与总结
 1. 本次作业有一些操作在录制之后发现有问题，正确的结果是经过了更正之后进行的。以后写作业最好能先把结果实验好再录制。
